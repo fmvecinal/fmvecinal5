@@ -1,43 +1,8 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+<head>
 
-on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches: ["main"]
+ <body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script><script src="https://radioshdstreaming.com/play/player_2/4/js/player4.js"></script><div id="mexiserver" style="width:410px; height:445px;"></div><script> $("#mexiserver").lunaradio({ streamurl: "http://127.0.0.1:8000/fmvecinal.com", radioname: "FMVECINAL", coverimage: "https://static.wixstatic.com/media/6da0b4_e1c1f4070bf142928b0a236334d5c438.jpg/v1/fill/w_532,h_537,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/6da0b4_e1c1f4070bf142928b0a236334d5c438.jpg", onlycoverimage: false, userinterface: "big", backgroundcolor: "#0e1015", fontcolor: "#ffffff", hightlightcolor: "#e7433c", fontname: "Saira Condensed", googlefont: "Saira+Condensed:wght@100", fontratio: "0.4", scroll: "true", coverstyle: "animated", usevisualizer: "real", visualizertype: "5", streamtype: "shoutcast2", shoutcastpath: "/stream", shoutcastid: "1", metadatainterval: "5000", volume: "100", usestreamcorsproxy: "true", }); </script>
+ </body>
+</head>
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
-jobs:
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # Upload entire repository
-          path: '.'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
